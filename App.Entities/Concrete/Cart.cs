@@ -17,7 +17,7 @@ namespace App.Entities.Concrete
         {
             get
             {
-                return CartLines.Sum(c => c.Product.UnitPrice * c.Quantity);
+                return (decimal)CartLines.Sum(c => c.Product.UnitPrice * c.Quantity);
             }
         }
     }
