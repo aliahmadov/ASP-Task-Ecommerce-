@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace App.DataAccess.Concrete.EFEntityFramework
 {
-    public class EfProductDal:EfEntityRepositoryBase<Product, NorthwindContext>,IProductDal
+    public class EFProductDal:EfEntityRepositoryBase<Product, NorthwindContext>,IProductDal
     {
     }
 }

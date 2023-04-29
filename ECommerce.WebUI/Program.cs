@@ -1,5 +1,9 @@
 
 
+using App.Business.Abstract;
+using App.Business.Concrete;
+using App.DataAccess.Abstract;
+using App.DataAccess.Concrete.EFEntityFramework;
 using App.Entities.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,6 +14,11 @@ builder.Services.AddControllersWithViews();
 
 
 builder.Services.AddSession();
+
+builder.Services.AddScoped<ICategoryDal, EFCategoryDal>();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped<IProductDal, EFProductDal>();
+builder.Services.AddScoped<IProductService, ProductService>();
 
 var conn = builder.Configuration.GetConnectionString("myconn");
 builder.Services.AddDbContext<NorthwindContext>(
@@ -37,6 +46,6 @@ app.UseAuthorization();
 app.UseSession();
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Product}/{action=Index}/{id?}");
 
 app.Run();
