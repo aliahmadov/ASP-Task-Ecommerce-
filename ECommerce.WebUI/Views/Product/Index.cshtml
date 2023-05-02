@@ -1,43 +1,55 @@
 ﻿@model ProductListViewModel
 
 <p>
-    <a href="/product/add" class="btn btn-outline-primary">Create New</a>
+	<a href="/product/add" class="btn btn-outline-primary">Create New</a>
 </p>
+
 <table class="table">
-    <thead>
-        <tr>
-            <th>ProductName</th>
-            <th>UnitPrice</th>
-            <th>UnitsInStock</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-    @foreach (var item in Model.Products)
-        {
-            <tr>
-                <td>
-                    @item.ProductName
-                </td>
-                <td>
-                    @item.UnitPrice
-                </td>
-                <td>
-                    @item.UnitsInStock
-                </td>
-                <td>
-                    <a class="btn btn-xs btn-success">Add To Cart</a>
-                </td>
-            </tr>
-        }
-</tbody>
+	<thead>
+		<tr>
+			<th><a class="btn btn-outline-primary" id="l" asp-controller="Product" asp-action="Sort" asp-route-value="l">@Model.NameFilter</a></th>
+
+			<th><a class="btn btn-outline-danger" id="n" asp-controller="Product" asp-action="Sort" asp-route-value="n">@Model.NumFilter</a></th>
+		</tr>
+		<tr>
+			<th>ProductName</th>
+			<th>UnitPrice</th>
+			<th>UnitsInStock</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model.Products)
+		{
+			<tr>
+				<td>
+					@item.ProductName
+				</td>
+				<td>
+					@item.UnitPrice
+				</td>
+				<td>
+					@item.UnitsInStock
+				</td>
+				<td>
+					<a class="btn btn-xs btn-success">Add To Cart</a>
+				</td>
+			</tr>
+		}
+	</tbody>
 </table>
 
-<product-list-pager
-current-category="@Model.CurrentCategory"
-current-page="@Model.CurrentPage"
-page-count="@Model.PageCount"
-page-size="@Model.PageSize"
->
+<product-list-pager current-category="@Model.CurrentCategory"
+					current-page="@Model.CurrentPage"
+					page-count="@Model.PageCount"
+					page-size="@Model.PageSize">
 
 </product-list-pager>
+
+
+<script>
+
+	
+
+
+</script>

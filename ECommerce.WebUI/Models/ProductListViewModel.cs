@@ -9,5 +9,7 @@ namespace ECommerce.WebUI
         public int PageCount { get; set; }
         public int PageSize { get; set; }
         public int CurrentPage { get; set; }
+        public string NameFilter { get; set; }
+        public string NumFilter { get; set; }
     }
 }
