@@ -44,6 +44,16 @@ namespace App.Business.Concrete
             return _productDal.Get(p => p.ProductId == id);
         }
 
+        public List<Product> GetProductsAZ(List<Product> list,bool state)  
+        {
+            return state ? list.OrderBy(p => p.ProductName).ToList() : list.OrderByDescending(p => p.ProductName).ToList();
+        }
+
+        public List<Product> GetProductsByFilterLoworHigh(List<Product> list, bool state)
+        {
+            return state ? list.OrderBy(p => p.UnitPrice).ToList() : list.OrderByDescending(p => p.UnitPrice).ToList();
+        }
+
         public void Update(Product product)
         {
             _productDal.Update(product);

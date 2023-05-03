@@ -7,9 +7,26 @@
 <table class="table">
 	<thead>
 		<tr>
-			<th><a class="btn btn-outline-primary" id="l" asp-controller="Product" asp-action="Sort" asp-route-value="l">@Model.NameFilter</a></th>
 
-			<th><a class="btn btn-outline-danger" id="n" asp-controller="Product" asp-action="Sort" asp-route-value="n">@Model.NumFilter</a></th>
+			@if (@Model.AZState)
+			{
+				<th><a class="btn btn-outline-primary"   href="/product/index?page=@Model.CurrentPage&category=@Model.CurrentCategory&azState=true">A to Z</a></th>
+			}
+			else
+			{	
+				<th><a class="btn btn-outline-danger" href="/product/index?page=@Model.CurrentPage&category=@Model.CurrentCategory&azState=false">Z to A</a></th>
+			}
+
+
+			@if (@Model.LHState)
+			{
+				<th><a class="btn btn-outline-primary"   href="/product/index?page=@Model.CurrentPage&category=@Model.CurrentCategory&lhState=true">Low to High</a></th>
+			}
+			else
+			{	
+				<th><a class="btn btn-outline-danger" href="/product/index?page=@Model.CurrentPage&category=@Model.CurrentCategory&lhState=false">High to Low</a></th>
+			}
+
 		</tr>
 		<tr>
 			<th>ProductName</th>
@@ -46,10 +63,3 @@
 
 </product-list-pager>
 
-
-<script>
-
-	
-
-
-</script>
